@@ -4,7 +4,7 @@
       <t-input v-model="filter" @keypress.enter="fetch" />
     </t-card>
     <div class="flex flex-wrap">
-      <div class="px-6 py-5 w-1/5" v-for="item in items" :key="item.username">
+      <div class="px-6 py-5 w-1/5 md:w-1/4 sm:w-1/3 xs:w-1/2" v-for="item in items" :key="item.username">
         <account-item :item="item" @remove="removeItem(item._id)" />
       </div>
     </div>
