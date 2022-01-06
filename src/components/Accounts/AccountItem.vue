@@ -14,12 +14,13 @@
     </div>
     <div class="p-3">
       <div class="text-lg font-bold">
-        <a :href="'https://instagram.com/' + item.username" target="_blank">{{
-          item.name || "Unknown"
-        }}</a>
+        <a :href="profileLink" target="_blank">{{ item.name || "Unknown" }}</a>
       </div>
-      <div class="mb-1 text-sm">
-        <b>{{ item.followers }}</b> Followers
+      <div class="mb-1 text-sm flex justify-between items-center flex-wrap">
+        <a :href="profileLink" target="_blank">@{{ item.username }}</a>
+        <div>
+          <b>{{ item.followers }}</b> Followers
+        </div>
       </div>
       <div class="flex justify-between">
         <div>Age: {{ item.age }}</div>
@@ -53,6 +54,9 @@ export default {
     item: Object,
   },
   computed: {
+    profileLink() {
+      return "https://instagram.com/" + this.item.username;
+    },
     photoUrl() {
       return getProxyImage(this.item.photo);
     },

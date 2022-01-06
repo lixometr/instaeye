@@ -7,16 +7,18 @@
 <script>
 import { getLogs } from "../api/logs";
 export default {
-  data: () => ({ logs: "", interval: 1000 }),
+  data: () => ({ logs: "", interval: 1000, isStoped: false }),
   mounted() {
     this.intervalFetch();
   },
   beforeDestroy() {
     clearTimeout(this.timer);
+    this.isStoped = true;
   },
   methods: {
     async intervalFetch() {
       await this.fetch();
+      if (this.isStoped) return;
       this.timer = setTimeout(this.intervalFetch, this.interval);
     },
     async fetch() {

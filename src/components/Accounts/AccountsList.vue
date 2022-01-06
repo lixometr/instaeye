@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <t-card header="Filter" class="mb-3">
       <t-input v-model="filter" @keypress.enter="fetch" />
     </t-card>
@@ -9,6 +10,7 @@
       </div>
     </div>
     <t-pagination :totalItems="totalItems" :per-page="perPage" v-model="page" />
+    <div class="text-base text-center mt-4">Total: {{totalItems}}</div>
   </div>
 </template>
 
