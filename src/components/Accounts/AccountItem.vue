@@ -33,7 +33,7 @@
       </div>
       <div class="mt-2 flex flex-wrap items-center">
         <div class="text-sm font-bold mr-2">
-          {{ item.location && item.location.name }}
+          {{ item.location }}
         </div>
         <a
           href="#"
